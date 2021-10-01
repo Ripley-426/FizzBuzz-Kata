@@ -9,9 +9,9 @@ namespace Kata
         {
             string fizzBuzz = "";
 
-            if (number % 3 == 0) fizzBuzz += "Fizz";
-            if (number % 5 == 0) fizzBuzz += "Buzz";
-            if (fizzBuzz == "") fizzBuzz = number.ToString();
+            fizzBuzz += AddFizzIfDivisibleBy3(number);
+            fizzBuzz += AddBuzzIfDivisibleBy5(number);
+            fizzBuzz = AddNumberAsStringIfItWasNotDivisible(fizzBuzz, number);            
 
             return fizzBuzz;
         }
@@ -25,6 +25,16 @@ namespace Kata
             }
 
             return fizzBuzzList;
+        }
+
+        private string AddFizzIfDivisibleBy3(int number) => (number % 3 == 0) ? "Fizz" : "";
+
+        private string AddBuzzIfDivisibleBy5(int number) => (number % 5 == 0) ? "Buzz" : "";
+
+        private string AddNumberAsStringIfItWasNotDivisible(string fizzBuzz, int number)
+        {
+            if (fizzBuzz == "") fizzBuzz = number.ToString();
+            return fizzBuzz;
         }
     }
 }
