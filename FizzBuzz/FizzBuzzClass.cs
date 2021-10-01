@@ -19,6 +19,7 @@ namespace Kata
         public List<string> GetFizzBuzzList(int listLength)
         {
             List<string> fizzBuzzList = new List<string>();
+
             for (int i = 0; i < listLength; i++)
             {
                 fizzBuzzList.Add(GetFizzBuzz(i));
